@@ -1,0 +1,127 @@
+Hardhat :- Its a Ethereum development environment for professionals. 😎😎😎
+
+Its Flexible. Extensible. Fast.
+
+WHY HARDHAT ?
+
+-> 1). Run Solidity locally
+Easily deploy your contracts, run tests and debug Solidity code without dealing with live environments. Hardhat Network is a local Ethereum network designed for development.
+
+-> 2). Debugging-first
+Hardhat is the best choice for Solidity debugging. You get Solidity stack traces, console.log and explicit error messages when transactions fail.
+
+-> 3). Extreme flexibility
+Change anything you like. Even entire out-of-the-box tasks, or just parts of them. Flexible and customizable design, with little constraints.
+
+-> 4). Bring your own tools
+Designed to make integrations easy, Hardhat allows you to keep using your existing tools while enabling deeper interoperability between them.
+
+-> 5). Fully extensible
+A tooling platform designed to be extended, Hardhat has all the utilities you need to address your project-specific needs.
+
+-> 6). Plugin ecosystem
+Extend Hardhat with a composable ecosystem of plugins that add functionality and integrate your existing tools into a smooth workflow.
+
+-> 7). Fast iteration
+Keep your momentum going by making your development feedback loop up to 10x faster with Hardhat.
+
+-> 8). TypeScript
+Catch mistakes before you even run your code by switching to a typed language. Hardhat provides full native support for TypeScript.
+
+
+TODO: FIXME: 
+
+Installation:- npm install --save-dev hardhat@2.9.9
+
+Project Creation :- npx hardhat  ->  Select :-  "Create a basic sample project"  
+
+Install Important dependencies :- npm install --save-dev @nomiclabs/hardhat-waffle ethereum-waffle chai @nomiclabs/hardhat-ethers ethers
+
+Run command (must return bunch of account address):- npx hardhat accounts
+
+To make sure everything is working, run :- npx hardhat compile  / npx hardhat test
+
+Optional:- Go ahead and delete the file "sample-test.js" under "test".  Also, delete "sample-script.js" under "scripts". Then, delete "Greeter.sol" under "contracts". Don't delete the actual folders!
+
+TODO: FIXME: . File structure is super important when using Hardhat, so, be careful here!
+
+Full-form of SPDX :- Software Package Data Exchange
+
+
+-> import "hardhat/console.sol";
+Some magic given to us by Hardhat to do some console logs in our contract. It's actually challenging to debug smart contracts but this is one of the goodies Hardhat gives us to make life easier. Using this we can do console.log() Just like JavaScript.
+
+Code to deploy our contract :- "npx hardhat run scripts/run.js"
+
+-> To ecute our test file :-  npx hardhat run scripts/run.js
+
+TODO: See what's happening here is that :- Haradhat is simply
+1. Creating a new local Ethereum network.
+2. Deploying your contract.
+3. Then, when the script ends Hardhat will automatically destroy that local network.
+
+We need a way to keep the local network alive. Why? Well, think about a local server. You want to keep it alive so you can keep talking to it! For example, if you have a local server with an API you made, you want to keep that local server alive so you can work on your website and test it out
+
+Command to run our actual live ethereum network :- "npx hardhat node " -> And boom we have just started a local Ethereum network that stays alive. And, as you can see Hardhat gave us 20 accounts to work with and gave them all 10000 ETH and we are now rich! 
+
+So right now, this is just an empty blockchain. No blocks!
+
+We want to create a new block and get our smart contract on it! Lets do that.
+
+Under the scripts folder, create a file called "deploy.js". Here's the code for it. It looks super similar to "run.js".
+
+🎉 DEPLOY
+Now the command we're going to run to deploy locally is:
+"npx hardhat run scripts/deploy.js --network localhost"
+
+// Steps to deploy our smart contract. 
+// 1). Create new terminal 
+// 2). npx hardhat node    (Run local node)
+// 3). Go back to previous terminal and execute this code :- npx hardhat run scripts/deploy.js --network localhost    (Code to deploy our smart contract)
+
+// For the front-end we are going to use replit :- 
+Now whats Replit ?
+-> We'll be using Replit! It is a browser-based IDE that lets us easily build web apps and deploy them all from the browser. It is super legit. Instead of having to set up a full local environment and write commands to deploy, it's all just given to us.
+
+Please Note: As you go through this project, you may notice that we are referencing .js files. In Replit, if you are creating any new JavaScript files, you will need to use the .jsx extension instead! Replit has some performance fanciness that requires you use the .jsx file extension :).
+
+// Refer Link :- For more info :- https://buildspace.so/p/build-solidity-web3-app/lessons/setup-react-app-with-metamask
+
+// Now we have did Replit made react-app and edited hardhat.config.js file and setted our keys ,network nd all in the .env and using it in the hardhat.config.js 
+
+// So now we are all set to deploy our smart contract to the rinkeby test network 😉
+
+command to deploy our smart-contract to the rinkeby test net :- npx hardhat run scripts/deploy.js --network rinkeby
+
+// Deployed Contract address :- 0x67ae14f7E52682a482f56E953DDafa2eC144C702
+
+TODO: FIXME: Now coming to the most important part I wanted to learn since a very long time (ie :- Hoew to connect metamask wallet to our DApp) . Lets see....... How we can do this 😉
+
+NOTE:- So, in order for our website to talk to the blockchain, we need to somehow connect our wallet to it. Once we connect our wallet to our website, our website will have permissions to call smart contracts on our behalf. Remember, it's just like authenticating in to a website.
+
+Head over to Replit and go to "App.jsx" under "src", this is where we'll be doing all our work.
+Head to link for more info :- "https://buildspace.so/p/build-solidity-web3-app/lessons/connect-wallet-to-web-app" 
+
+// We have written our code. 
+
+Now next we'll :- 
+Next, we need to actually check if we're authorized to actually access the user's wallet. Once we have access to this, we can call our smart contract!
+Basically, Metamask doesn't just give our wallet credentials to every website we go to. It only gives it to websites we authorize. Again, it's just like logging in! But, what we're doing here is checking if we're "logged in".
+
+// Lets create "Connect Wallet"
+We need to create a connectWallet button. In the world of Web3, connecting your wallet is literally a "Login" button for your user :). Check it out:
+
+// ✈️ Re-deploy  (Dont forget)
+So, now that we've updated our contract we need to do a few things:
+
+1. We need to deploy it again.
+
+2. We need to update the contract address on our frontend.
+
+3. We need to update the abi file on our frontend. 
+
+People constantly forget to do these 3 steps when they change their contract. Don't forget lol.
+
+Peace ✌
+
+
